@@ -27,7 +27,7 @@ A real-time Bitcoin price prediction game built with modern serverless architect
 
 **Initial Setup (One-time)**
 ![SSL Configuration](docs/screenshots/alb-config-hint.png)
-*SSL certificate setup for secure real-time updates (required for ALB self-signed certificate)*
+*Browser security warning acceptance for ALB self-signed certificate (no custom domain configured)*
 
 ## 🏗️ Architecture
 
