@@ -195,27 +195,6 @@ serverless-demo/
 | `/sse/price` | GET | Yes | Real-time price updates via Server-Sent Events |
 | `/health` | GET | No | WebSocket service health check |
 
-## 🧪 Testing
-
-This project uses comprehensive **Jest-based testing** for end-to-end validation.
-
-### Quick Test
-
-```bash
-# Test the deployed application
-./scripts/test-deployed.sh
-```
-
-### Test Categories
-
-- **API Validation**: Input validation and security tests
-- **Business Logic**: Game rules and authentication workflows
-- **Error Handling**: Resilience and error response tests
-- **Real-time Features**: WebSocket and SSE functionality
-- **Performance**: Load testing and response time measurement
-
-For detailed testing documentation, see **[TEST.md](./TEST.md)**.
-
 ## 🔧 Development
 
 For comprehensive deploy documentation, see **[DEPLOYMENT.md](./DEPLOYMENT.md)**.
@@ -254,6 +233,27 @@ cd websocket-service
 npm install
 npm start
 ```
+
+## 🧪 Testing
+
+This project uses comprehensive **Jest-based testing** for end-to-end validation.
+
+### Quick Test
+
+```bash
+# Test the deployed application
+./scripts/test-deployed.sh
+```
+
+### Test Categories
+
+- **API Validation**: Input validation and security tests
+- **Business Logic**: Game rules and authentication workflows
+- **Error Handling**: Resilience and error response tests
+- **Real-time Features**: WebSocket and SSE functionality
+- **Performance**: Load testing and response time measurement
+
+For detailed testing documentation, see **[TEST.md](./TEST.md)**.
 
 ## 📊 Monitoring
 
@@ -314,30 +314,15 @@ fargate_memory        = 512              # Minimum for demo
 aws sts get-caller-identity
 ```
 
-**Application errors:**
-```bash
-# Check CloudWatch logs
-aws logs tail /aws/lambda/function-name --follow
+**API/Lambda issues:**
+- Check AWS CloudWatch logs for specific error messages
+- Verify DynamoDB and Redis connectivity
+- Run the test suite: `./scripts/test-deployed.sh`
 
-# Check ECS service status
-aws ecs describe-services --cluster cluster-name --services service-name
-```
-
-**WebSocket connection issues:**
-```bash
-# Test health endpoint
-curl -k https://your-alb-dns-name/health
-
-# Check ECS service health and status
-aws ecs describe-services \
-  --cluster bitcoin-prediction-game-dev-cluster \
-  --services bitcoin-prediction-game-dev-websocket-service
-
-# Check running tasks with detailed info
-aws ecs describe-tasks \
-  --cluster bitcoin-prediction-game-dev-cluster \
-  --tasks $(aws ecs list-tasks --cluster bitcoin-prediction-game-dev-cluster --service-name bitcoin-prediction-game-dev-websocket-service --query 'taskArns[0]' --output text)
-```
+**Real-time price updates not working:**
+- Visit the ALB health endpoint (shown in deployment output)
+- Configure SSL certificate exception in browser (see screenshot)
+- Check if WebSocket service is running in ECS console
 
 
 
@@ -355,11 +340,7 @@ aws ecs describe-tasks \
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+Fork, create feature branch, commit changes, and open a Pull Request.
 
 ## 📄 License
 
