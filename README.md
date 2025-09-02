@@ -4,34 +4,30 @@ A real-time Bitcoin price prediction game built with modern serverless architect
 
 ## 🎮 Game Overview
 
+> **Note**: Experience the live game at: https://d3nu3xfyi43erv.cloudfront.net/login
+
 **How to Play:**
-1. Register and login to create your account
-2. View the current Bitcoin price from Binance
-3. Make UP/DOWN predictions on price movements
-4. Wait 60 seconds for your prediction to resolve
-5. Earn +1 point for correct predictions, -1 for incorrect
-6. Compete with others to achieve the highest score
+1. **Register and login** to create your account
+2. **View current Bitcoin price** from Binance in real-time
+3. **Make UP/DOWN predictions** on price movements
+4. **Wait 60 seconds** for your prediction to resolve
+5. **Earn points**: +1 for correct predictions, -1 for incorrect
+6. **Compete with others** to achieve the highest score
 
-## 📱 Application Screenshots
+### 📱 Application Interface
 
-> **Note**: Below is the deployed project link, you can experience it.
-https://d3nu3xfyi43erv.cloudfront.net/login.
-
-### User Registration
+**User Registration & Login**
 ![User Registration](docs/screenshots/register.png)
-*Create your account with username and password validation*
-
-### User Login  
 ![User Login](docs/screenshots/login.png)
-*Sign in to access your Bitcoin prediction game account*
+*Create your account and sign in with username/password validation*
 
-### Game Interface
+**Game Interface**
 ![Game Interface](docs/screenshots/game.png)
-*Real-time Bitcoin price display with prediction buttons and game rules*
+*Real-time Bitcoin price display with prediction buttons and scoring system*
 
-### SSL Configuration Setup
+**Initial Setup (One-time)**
 ![SSL Configuration](docs/screenshots/alb-config-hint.png)
-*One-time SSL certificate setup for secure real-time price updates (required because ALB uses a self-signed certificate without custom domain)*
+*SSL certificate setup for secure real-time updates (required for ALB self-signed certificate)*
 
 ## 🏗️ Architecture
 
