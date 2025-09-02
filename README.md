@@ -218,6 +218,8 @@ For detailed testing documentation, see **[TEST.md](./TEST.md)**.
 
 ## 🔧 Development
 
+For comprehensive deploy documentation, see **[DEPLOYMENT.md](./DEPLOYMENT.md#troubleshooting)**.
+
 ### Selective Deployment
 
 ```bash
@@ -337,7 +339,7 @@ aws ecs describe-tasks \
   --tasks $(aws ecs list-tasks --cluster bitcoin-prediction-game-dev-cluster --service-name bitcoin-prediction-game-dev-websocket-service --query 'taskArns[0]' --output text)
 ```
 
-For comprehensive troubleshooting, see **[DEPLOYMENT.md](./DEPLOYMENT.md#troubleshooting)**.
+
 
 ## 🧹 Cleanup
 
