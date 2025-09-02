@@ -1,0 +1,13 @@
+{
+  "name": "get-latest-price",
+  "version": "1.0.0",
+  "description": "Get latest price Lambda function",
+  "main": "index.js",
+  "dependencies": {
+    "aws-sdk": "^2.1531.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "redis": "^4.6.10",
+    "uuid": "^9.0.1"
+  }
+}

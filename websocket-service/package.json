@@ -1,0 +1,41 @@
+{
+  "name": "bitcoin-websocket-service",
+  "version": "1.0.0",
+  "description": "WebSocket service for fetching Bitcoin price data from Binance and storing in ElastiCache",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "build": "echo 'No build step required for Node.js'",
+    "test": "echo 'No tests specified'"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1531.0",
+    "axios": "^1.6.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "redis": "^4.6.10",
+    "ws": "^8.14.2",
+    "ws-reconnect": "^1.0.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "websocket",
+    "bitcoin",
+    "binance",
+    "redis",
+    "elasticache",
+    "aws",
+    "fargate"
+  ],
+  "author": "Bitcoin Prediction Game",
+  "license": "MIT"
+}

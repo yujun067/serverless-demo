@@ -1,0 +1,37 @@
+{
+  "name": "bitcoin-prediction-game-lambda",
+  "version": "1.0.0",
+  "description": "Lambda functions for Bitcoin Price Prediction Game",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build.js",
+    "build:legacy": "npm run build:functions",
+    "build:functions": "npm run build:user-registration && npm run build:user-login && npm run build:get-user-score && npm run build:submit-guess && npm run build:get-latest-price",
+    "build:user-registration": "cd functions/user-registration && npm install --production && zip -r ../../dist/user-registration.zip .",
+    "build:user-login": "cd functions/user-login && npm install --production && zip -r ../../dist/user-login.zip .",
+    "build:get-user-score": "cd functions/get-user-score && npm install --production && zip -r ../../dist/get-user-score.zip .",
+    "build:submit-guess": "cd functions/submit-guess && npm install --production && zip -r ../../dist/submit-guess.zip .",
+    "build:get-latest-price": "cd functions/get-latest-price && npm install --production && zip -r ../../dist/get-latest-price.zip .",
+    "clean": "rm -rf dist && mkdir dist",
+    "test": "jest"
+  },
+  "keywords": [
+    "aws",
+    "lambda",
+    "serverless",
+    "bitcoin",
+    "game"
+  ],
+  "author": "Bitcoin Prediction Game Team",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1531.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "redis": "^4.6.10",
+    "uuid": "^9.0.1"
+  }
+}
