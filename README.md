@@ -218,7 +218,7 @@ For detailed testing documentation, see **[TEST.md](./TEST.md)**.
 
 ## 🔧 Development
 
-For comprehensive deploy documentation, see **[DEPLOYMENT.md](./DEPLOYMENT.md#troubleshooting)**.
+For comprehensive deploy documentation, see **[DEPLOYMENT.md](./DEPLOYMENT.md)**.
 
 ### Selective Deployment
 
