@@ -183,11 +183,11 @@ serverless-demo/
 ### API Gateway (REST API)
 | Endpoint | Method | Auth Required | Description |
 |----------|--------|---------------|-------------|
-| `/api-v1-register` | POST | No | User registration |
-| `/api-v1-login` | POST | No | User authentication |
-| `/api-v1-user-score` | GET | Yes | Get user statistics |
-| `/api-v1-guess` | POST | Yes | Submit price prediction |
-| `/api-v1-price` | GET | Yes | Get current Bitcoin price |
+| `/register` | POST | No | User registration |
+| `/login` | POST | No | User authentication |
+| `/user/score` | GET | Yes | Get user statistics |
+| `/guess` | POST | Yes | Submit price prediction |
+| `/price` | GET | Yes | Get current Bitcoin price |
 
 ### WebSocket Service (SSE)
 | Endpoint | Method | Auth Required | Description |
