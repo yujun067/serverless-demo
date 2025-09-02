@@ -120,6 +120,19 @@ const Game = () => {
 
   // Initialize SSE connection with automatic data freshness monitoring
   useEffect(() => {
+    // Don't initialize SSE connection if user is not authenticated
+    if (!user) {
+      console.log("User not authenticated, skipping SSE connection");
+      return;
+    }
+
+    // Verify JWT token exists before attempting SSE connection
+    const token = localStorage.getItem("token");
+    if (!token) {
+      console.log("No JWT token found, skipping SSE connection");
+      return;
+    }
+
     let dataFreshnessTimer;
 
     const initializeConnection = async () => {
@@ -132,7 +145,9 @@ const Game = () => {
             process.env.REACT_APP_SSE_URL ||
             "https://bitcoin-game-websocket-alb-1129153088.eu-north-1.elb.amazonaws.com/sse/price";
 
-          console.log("Starting SSE connection with auto-recovery");
+          console.log(
+            "Starting SSE connection with auto-recovery for authenticated user"
+          );
 
           // Initial fetch for immediate data
           await fetchLatestPrice();
@@ -177,7 +192,7 @@ const Game = () => {
 
     initializeConnection();
 
-    // Cleanup on unmount
+    // Cleanup on unmount or when user becomes unauthenticated
     return () => {
       if (dataFreshnessTimer) {
         clearInterval(dataFreshnessTimer);
@@ -187,9 +202,12 @@ const Game = () => {
       sseClient.removeEventListener("price_update", handlePriceUpdate);
       sseClient.removeEventListener("guess_result", handleGuessResult);
       sseClient.disconnect();
+      console.log(
+        "SSE connection cleaned up due to auth state change or component unmount"
+      );
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sslCheckPassed]); // Re-run when SSL check status changes
+  }, [user, sslCheckPassed]); // Re-run when user auth state or SSL check status changes
 
   // Fetch initial price data
   const fetchLatestPrice = useCallback(async () => {
