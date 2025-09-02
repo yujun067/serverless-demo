@@ -31,7 +31,7 @@ https://d3nu3xfyi43erv.cloudfront.net/login.
 
 ### SSL Configuration Setup
 ![SSL Configuration](docs/screenshots/alb-config-hint.png)
-*One-time SSL certificate setup for secure real-time price updates (required because ALB uses default AWS domain without custom certificate)*
+*One-time SSL certificate setup for secure real-time price updates (required because ALB uses a self-signed certificate without custom domain)*
 
 ## 🏗️ Architecture
 
